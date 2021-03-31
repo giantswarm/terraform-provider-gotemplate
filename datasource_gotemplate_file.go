@@ -14,7 +14,7 @@ import (
 
 	"github.com/hashicorp/terraform/helper/schema"
 
-	ignition "github.com/giantswarm/k8scloudconfig/ignition/v_2_2_0"
+	"github.com/giantswarm/k8scloudconfig/v10/pkg/ignition"
 	"github.com/giantswarm/microerror"
 )
 
@@ -41,7 +41,7 @@ func renderNestedTemplates(templatesDir string, ctx interface{}) (files, error) 
 		if f.Mode().IsRegular() {
 			tmpl, err := template.ParseFiles(path)
 			if err != nil {
-				return microerror.Maskf(err, "failed to parse file %#q", path)
+				return microerror.Mask(err)
 			}
 			var data bytes.Buffer
 			tmpl.Execute(&data, ctx)
