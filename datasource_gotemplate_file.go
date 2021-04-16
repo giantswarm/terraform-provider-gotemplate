@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"text/template"
 
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform/internal/legacy/helper/schema"
 
 	"github.com/giantswarm/k8scloudconfig/v10/pkg/ignition"
 	"github.com/giantswarm/microerror"
